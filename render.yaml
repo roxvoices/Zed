@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: zed-cart-uk
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: zedcart-db
+      mountPath: /data
+      sizeGB: 1

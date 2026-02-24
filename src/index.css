@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-zed-red: #FF3B3F;
+  --color-zed-blue: #0A192F;
+  --color-zed-green: #00F5D4;
+  --color-zed-gold: #FFD700;
+  --color-zed-dark: #050505;
+  --color-zed-slate: #112240;
+  --color-zed-light: #F8FAFC;
+}
+
+@layer base {
+  body {
+    @apply bg-zed-dark text-slate-300 font-sans selection:bg-zed-red selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold text-white tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl;
+  }
+  
+  .glass-nav {
+    @apply bg-zed-dark/80 backdrop-blur-md border-b border-white/5;
+  }
+  
+  .btn-primary {
+    @apply relative overflow-hidden bg-zed-red text-white px-8 py-4 rounded-2xl font-bold 
+           hover:scale-[1.02] active:scale-[0.98] transition-all duration-300
+           shadow-[0_0_20px_rgba(255,59,63,0.3)] hover:shadow-[0_0_30px_rgba(255,59,63,0.5)];
+  }
+  
+  .btn-outline {
+    @apply px-8 py-4 rounded-2xl font-bold border-2 border-white/10 text-white
+           hover:bg-white/5 hover:border-white/20 transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/50;
+  }
+  
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-6;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.glow-mesh {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 59, 63, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 245, 212, 0.1) 0%, transparent 40%);
+}

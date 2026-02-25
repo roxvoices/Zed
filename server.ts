@@ -1,3 +1,8 @@
+import fs from "fs";
+
+if (!fs.existsSync("./data")) {
+  fs.mkdirSync("./data");
+}
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";

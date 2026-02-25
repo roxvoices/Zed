@@ -1,8 +1,3 @@
-import fs from "fs";
-
-if (!fs.existsSync("./data")) {
-  fs.mkdirSync("./data");
-}
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
@@ -13,6 +8,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const dbPath = process.env.NODE_ENV === 'production' && process.env.RENDER ? '/data/zedcart.db' : 'zedcart.db';
+import fs from "fs";
+
+if (!fs.existsSync("./data")) {
+  fs.mkdirSync("./data");
+}
 const db = new Database(dbPath);
 
 // Initialize Database

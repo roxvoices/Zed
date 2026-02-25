@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dbPath = process.env.NODE_ENV === 'production' && process.env.RENDER ? '/data/zedcart.db' : 'zedcart.db';
+const dbPath = "./data/zedcart.db";
 import fs from "fs";
 
 if (!fs.existsSync("./data")) {
